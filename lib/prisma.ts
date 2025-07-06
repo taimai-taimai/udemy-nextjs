@@ -1,4 +1,4 @@
-import { PrismaClient } from '../app/generated/prisma'
+import { PrismaClient } from './prisma/generated'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 type PrismaClientWithExtensions = ReturnType<typeof createPrismaClient>
