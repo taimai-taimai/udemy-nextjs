@@ -1,24 +1,16 @@
 import React from 'react'
-import prisma from '../../lib/prisma'
-
-const getUsers = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 5000))
-    return await prisma.user.findMany()
-}
+import { createUserActionFromServerComponent } from './create-user-action'
 
 const ServerComponent = async () => {
-    const users = await getUsers()
     return (
-    <div>
-        {
-            users.map((user) => (
-                <div key={user.id}>
-                    <p>{user.name}</p>
-                    <p>{user.email}</p>
-                </div>
-            ))
-        }
-    </div>
+        // サーバーコンポーネントでは、formのactionにサーバーアクションを指定する
+        // input属性をFormDataオブジェクトとしてサーバーアクションに渡せる
+        <form action={createUserActionFromServerComponent}>
+            <input className="border" type="text" name="name" />
+            <input className="border" type="text" name="email" />
+            <input className="border" type="text" name="password" />
+            <button>送信</button>
+        </form>
   )
 }
 

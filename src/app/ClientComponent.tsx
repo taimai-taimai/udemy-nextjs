@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
+import { createUser } from "./create-user-action";
 
 const ClientComponent = () => {
     // 単一のユーザーオブジェクトとして管理
@@ -19,9 +20,7 @@ const ClientComponent = () => {
     }
     
     const handleSubmit = async () => {
-        fetch("/api/users", {method: "POST",body: JSON.stringify(user),}).then((response) => {
-            response.json().then((res) => console.log(res))
-        })
+        createUser(user).then((res) => console.log(res))
     }
     
     return (
