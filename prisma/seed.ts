@@ -1,6 +1,6 @@
-import { PrismaClient, Prisma } from "../app/generated/prisma";
+import { PrismaClient, Prisma } from "../app/generated/prisma"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 const userData: Prisma.UserCreateInput[] = [
   {
@@ -13,12 +13,12 @@ const userData: Prisma.UserCreateInput[] = [
     email: "bob@prisma.io",
     password: "password",
   },
-];
+]
 
 export async function main() {
   for (const u of userData) {
-    await prisma.user.create({ data: u });
+    await prisma.user.create({ data: u })
   }
 }
 
-main();
+main()

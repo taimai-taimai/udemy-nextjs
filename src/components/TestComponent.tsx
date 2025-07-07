@@ -1,15 +1,9 @@
-import React from 'react'
+import React from "react"
 
-interface TestComponentProps {
-  
-}
+interface TestComponentProps {}
 
 const TestComponent: React.FC<TestComponentProps> = ({}) => {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>
 }
 
-export default TestComponent 
+export default TestComponent
